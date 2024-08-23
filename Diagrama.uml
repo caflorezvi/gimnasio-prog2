@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>co.edu.uniquindio.gimnasio.modelo.Entrenador</OriginalElement>
+  <nodes>
+    <node x="-314.59583977822535" y="863.538451219499">co.edu.uniquindio.gimnasio.modelo.Usuario</node>
+    <node x="-961.8327011125913" y="846.8724614890782">co.edu.uniquindio.gimnasio.modelo.Cliente</node>
+    <node x="-675.1420664574568" y="1352.7024101411826">co.edu.uniquindio.gimnasio.modelo.Clase</node>
+    <node x="-1081.8837466028801" y="1414.9615487805008">co.edu.uniquindio.gimnasio.modelo.Gimnasio</node>
+    <node x="-447.40423173039505" y="1124.9868953693872">co.edu.uniquindio.gimnasio.modelo.enums.TipoClase</node>
+    <node x="-491.219192728129" y="577.2987303080416">co.edu.uniquindio.gimnasio.modelo.enums.TipoEntrenamiento</node>
+    <node x="-796.31581924694" y="1154.9170051347896">co.edu.uniquindio.gimnasio.modelo.Reserva</node>
+    <node x="-945.3327011125913" y="568.5663532350279">co.edu.uniquindio.gimnasio.modelo.Entrenamiento</node>
+    <node x="-241.58055433209051" y="1145.5">co.edu.uniquindio.gimnasio.modelo.Entrenador</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Entrenamiento" target="co.edu.uniquindio.gimnasio.modelo.enums.TipoEntrenamiento" relationship="TO_ONE">
+      <point x="0.0" y="-79.5" />
+      <point x="-822.8327011125913" y="648.0663532350279" />
+      <point x="-392.219192728129" y="648.0663532350279" />
+      <point x="0.0" y="79.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Clase" target="co.edu.uniquindio.gimnasio.modelo.Reserva" relationship="TO_MANY">
+      <point x="0.0" y="-139.5" />
+      <point x="-578.1420664574568" y="1237.0" />
+      <point x="-681.31581924694" y="1237.0" />
+      <point x="0.0" y="-55.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Reserva" target="co.edu.uniquindio.gimnasio.modelo.Cliente" relationship="TO_ONE">
+      <point x="0.0" y="-55.5" />
+      <point x="-681.31581924694" y="1201.0" />
+      <point x="-761.1283194281482" y="1201.0" />
+      <point x="-761.1283194281482" y="897.0" />
+      <point x="-913.2455104833944" y="897.0" />
+      <point x="-90.41280937080307" y="32.85562751394093" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Clase" target="co.edu.uniquindio.gimnasio.modelo.enums.TipoClase" relationship="TO_ONE">
+      <point x="0.0" y="-139.5" />
+      <point x="-578.1420664574568" y="1410.8538480841244" />
+      <point x="-380.40423173039505" y="1410.8538480841244" />
+      <point x="0.0" y="91.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Cliente" target="co.edu.uniquindio.gimnasio.modelo.Usuario" relationship="GENERALIZATION">
+      <point x="69.5" y="-79.5" />
+      <point x="-753.3327011125913" y="897.0" />
+      <point x="-215.09583977822535" y="897.0" />
+      <point x="0.0" y="44.0" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Gimnasio" target="co.edu.uniquindio.gimnasio.modelo.Entrenador" relationship="TO_MANY">
+      <point x="31.902957603675418" y="1.1951245971988556" />
+      <point x="-911.9807889992047" y="1742.1794860655157" />
+      <point x="-158.08055433209051" y="1742.1794860655157" />
+      <point x="0.0" y="31.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Clase" target="co.edu.uniquindio.gimnasio.modelo.Entrenador" relationship="TO_ONE">
+      <point x="0.0" y="-139.5" />
+      <point x="-578.1420664574568" y="1477.0" />
+      <point x="-212.54844849338872" y="1477.0" />
+      <point x="-54.467894161298204" y="25.36595650372624" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Gimnasio" target="co.edu.uniquindio.gimnasio.modelo.Cliente" relationship="TO_MANY">
+      <point x="0.0" y="-55.5" />
+      <point x="-943.8837466028801" y="897.0" />
+      <point x="-892.3327011125913" y="897.0" />
+      <point x="-69.5" y="-79.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Gimnasio" target="co.edu.uniquindio.gimnasio.modelo.Clase" relationship="TO_MANY">
+      <point x="0.0" y="-55.5" />
+      <point x="-943.8837466028801" y="1477.0" />
+      <point x="-641.5667800216222" y="1477.0" />
+      <point x="-641.5667800216222" y="1497.0" />
+      <point x="-578.1420664574568" y="1497.0" />
+      <point x="0.0" y="-139.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Cliente" target="co.edu.uniquindio.gimnasio.modelo.Entrenamiento" relationship="TO_MANY">
+      <point x="-69.5" y="-79.5" />
+      <point x="-892.3327011125913" y="877.0" />
+      <point x="-822.8327011125913" y="877.0" />
+      <point x="0.0" y="-79.5" />
+    </edge>
+    <edge source="co.edu.uniquindio.gimnasio.modelo.Entrenador" target="co.edu.uniquindio.gimnasio.modelo.Usuario" relationship="GENERALIZATION">
+      <point x="0.0" y="-31.5" />
+      <point x="-158.08055433209051" y="1047.6688748777256" />
+      <point x="-158.86823095859472" y="1047.6688748777256" />
+      <point x="56.22760881963063" y="42.299298535951834" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.6023765681057571" showDependencies="true" x="-513.7981200610207" y="1150.913537286516" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
