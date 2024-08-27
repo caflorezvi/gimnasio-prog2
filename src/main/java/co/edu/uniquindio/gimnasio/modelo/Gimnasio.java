@@ -27,7 +27,15 @@ public class Gimnasio {
             throw new Exception("El cliente ya se encuentra registrado");
         }
 
-        Cliente cliente = new Cliente(numIdentificacion, nombre, direccion, telefono, correo, password);
+        Cliente cliente = new Cliente(
+                numIdentificacion,
+                nombre,
+                direccion,
+                telefono,
+                correo,
+                password
+        );
+
         clientes.add(cliente);
     }
 
@@ -79,7 +87,7 @@ public class Gimnasio {
         return null;
     }
 
-    public void crearClase(String nombre, List<String> horario, int capacidad, LocalDate fechaInicio, LocalDate fechaFin, TipoClase tipoClase, String numIdentificacionEntrenador) throws Exception{
+    public String crearClase(String nombre, List<String> horario, int capacidad, LocalDate fechaInicio, LocalDate fechaFin, TipoClase tipoClase, String numIdentificacionEntrenador) throws Exception{
 
         if(capacidad <= 0){
             throw new Exception("La capacidad de la clase debe ser mayor a 0");
@@ -94,8 +102,20 @@ public class Gimnasio {
             throw new Exception("El entrenador no se encuentra registrado");
         }
 
-        Clase clase = new Clase(UUID.randomUUID().toString(), nombre, horario, capacidad, fechaInicio, fechaFin, tipoClase, entrenador);
+        Clase clase = new Clase(
+                UUID.randomUUID().toString(),
+                nombre,
+                horario,
+                capacidad,
+                fechaInicio,
+                fechaFin,
+                tipoClase,
+                entrenador,
+                true
+        );
+
         clases.add(clase);
+        return clase.getId();
     }
 
     public Clase buscarClase(String idClase) {
@@ -107,19 +127,26 @@ public class Gimnasio {
         return null;
     }
 
-    public void registrarEntrenamiento(String numIdentificacionUsuario, TipoEntrenamiento tipoEjercicio, int duracion, int caloriasQuemadas, LocalDate fecha) throws Exception{
+    public String registrarEntrenamiento(String numIdentificacionUsuario, TipoEntrenamiento tipoEjercicio, int duracion, int caloriasQuemadas) throws Exception{
 
         Cliente cliente = buscarCliente(numIdentificacionUsuario);
         if (cliente == null) {
             throw new Exception("El cliente no se encuentra registrado");
         }
 
-        Entrenamiento entrenamiento = new Entrenamiento(UUID.randomUUID().toString(), tipoEjercicio, duracion, caloriasQuemadas, LocalDateTime.now());
-        cliente.agregarEntrenamiento(entrenamiento);
+        Entrenamiento entrenamiento = new Entrenamiento(
+                UUID.randomUUID().toString(),
+                tipoEjercicio,
+                duracion,
+                caloriasQuemadas,
+                LocalDateTime.now()
+        );
 
+        cliente.agregarEntrenamiento(entrenamiento);
+        return entrenamiento.getNumeroSesion();
     }
 
-    public void crearReserva(String numIdentificacionUsuario, String idClase) throws Exception{
+    public String crearReserva(String numIdentificacionUsuario, String idClase) throws Exception{
 
         Cliente cliente = buscarCliente(numIdentificacionUsuario);
         if (cliente == null) {
@@ -135,12 +162,17 @@ public class Gimnasio {
             throw new Exception("La clase no tiene cupos disponibles");
         }
 
-        Reserva reserva = new Reserva(UUID.randomUUID().toString(), cliente, LocalDateTime.now());
-        clase.agregarReserva(reserva);
+        Reserva reserva = new Reserva(
+                UUID.randomUUID().toString(),
+                cliente,
+                LocalDateTime.now()
+        );
 
+        clase.agregarReserva(reserva);
+        return reserva.getCodigo();
     }
 
-    public void cancelarReserva(String idClase, String numIdentificacionUsuario) throws Exception{
+    public void cancelarReserva(String numIdentificacionUsuario, String idClase) throws Exception{
         Clase clase = buscarClase(idClase);
         if (clase == null) {
             throw new Exception("La clase no se encuentra registrada");

@@ -59,4 +59,15 @@ public class Entrenamiento {
     public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
+
+    @Override
+    public String toString() {
+        return "Entrenamiento{" +
+                "numeroSesion='" + numeroSesion + '\'' +
+                ", tipoEjercicio=" + tipoEjercicio +
+                ", duracion=" + duracion +
+                ", caloriasQuemadas=" + caloriasQuemadas +
+                ", fecha=" + fecha +
+                '}';
+    }
 }

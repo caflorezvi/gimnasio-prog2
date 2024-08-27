@@ -18,15 +18,17 @@ public class Clase {
     private Entrenador entrenador;
     private List<Reserva> inscritos;
 
-    public Clase(String id, String nombre, List<String> horario, int capacidad, LocalDate fechaInicio, LocalDate fechaFin, TipoClase tipoClase, Entrenador entrenador) {
+    public Clase(String id, String nombre, List<String> horario, int capacidad, LocalDate fechaInicio, LocalDate fechaFin, TipoClase tipoClase, Entrenador entrenador, boolean disponible) {
         this.id = id;
         this.nombre = nombre;
         this.horario = horario;
         this.capacidad = capacidad;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
+        this.disponible = disponible;
         this.tipoClase = tipoClase;
         this.entrenador = entrenador;
+        this.inscritos = new ArrayList<>();
     }
 
     public String getId() {
@@ -102,29 +104,22 @@ public class Clase {
     }
 
     public void agregarReserva(Reserva reserva){
-        if(inscritos == null){
-            inscritos = new ArrayList<>();
-        }
         inscritos.add(reserva);
         actualizarDisponibilidad();
     }
 
     public void cancelarReserva(String numIdentificacionUsuario){
-        if(inscritos != null){
-            Reserva reserva = buscarReserva(numIdentificacionUsuario);
-            if(reserva != null){
-                inscritos.remove(reserva);
-                actualizarDisponibilidad();
-            }
+        Reserva reserva = buscarReserva(numIdentificacionUsuario);
+        if(reserva != null){
+            inscritos.remove(reserva);
+            actualizarDisponibilidad();
         }
     }
 
     private Reserva buscarReserva(String numIdentificacionUsuario){
-        if(inscritos != null){
-            for (Reserva reserva : inscritos) {
-                if(reserva.getCliente().getNumIdentificacion().equals(numIdentificacionUsuario)){
-                    return reserva;
-                }
+        for (Reserva reserva : inscritos) {
+            if(reserva.getCliente().getNumIdentificacion().equals(numIdentificacionUsuario)){
+                return reserva;
             }
         }
         return null;
@@ -139,11 +134,7 @@ public class Clase {
     }
 
     public int obtenerCuposDisponibles(){
-        int cuposDisponibles = capacidad;
-        if(inscritos != null){
-            cuposDisponibles = capacidad - inscritos.size();
-        }
-        return cuposDisponibles;
+        return capacidad - inscritos.size();
     }
 
 }

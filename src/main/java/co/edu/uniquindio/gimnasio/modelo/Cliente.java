@@ -17,6 +17,7 @@ public class Cliente extends Usuario{
         this.telefono = telefono;
         this.correo = correo;
         this.password = password;
+        this.entrenamientos = new ArrayList<>();
     }
 
     public String getDireccion() {
@@ -56,9 +57,6 @@ public class Cliente extends Usuario{
     }
 
     public void agregarEntrenamiento(Entrenamiento entrenamiento){
-        if(entrenamiento == null){
-            entrenamientos = new ArrayList<>();
-        }
         entrenamientos.add(entrenamiento);
     }
 
