@@ -11,9 +11,9 @@ import java.util.UUID;
 
 public class Gimnasio {
 
-    private final ArrayList<Clase> clases;
-    private final ArrayList<Cliente> clientes;
-    private final ArrayList<Entrenador> entrenadores;
+    private final List<Clase> clases;
+    private final List<Cliente> clientes;
+    private final List<Entrenador> entrenadores;
 
     public Gimnasio() {
         this.clases = new ArrayList<>();
@@ -230,6 +230,34 @@ public class Gimnasio {
 
         return top3Usuarios;
 
+    }
+
+    public TipoEntrenamiento obtenerTipoEntrenamientoMasRealizado(){
+
+        int[] contador = sumarMinutosPorTipoEntrenamiento();
+        int max = 0;
+        TipoEntrenamiento tipoEntrenamiento = null;
+
+        for (int i = 0; i < contador.length; i++) {
+            if(contador[i] > max){
+                max = contador[i];
+                tipoEntrenamiento = TipoEntrenamiento.values()[i];
+            }
+        }
+
+        return tipoEntrenamiento;
+    }
+
+    private int[] sumarMinutosPorTipoEntrenamiento(){
+        int[] contador = new int[TipoEntrenamiento.values().length];
+
+        for (Cliente cliente : clientes) {
+            for (Entrenamiento entrenamiento : cliente.getEntrenamientos()) {
+                contador[entrenamiento.getTipoEjercicio().ordinal()] += entrenamiento.getDuracion();
+            }
+        }
+
+        return contador;
     }
 
 

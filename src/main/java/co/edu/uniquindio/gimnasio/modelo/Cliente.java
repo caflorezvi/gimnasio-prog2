@@ -1,5 +1,7 @@
 package co.edu.uniquindio.gimnasio.modelo;
 
+import co.edu.uniquindio.gimnasio.modelo.enums.TipoEntrenamiento;
+
 import java.util.ArrayList;
 import java.util.List;
 

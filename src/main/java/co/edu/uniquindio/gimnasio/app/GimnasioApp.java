@@ -65,7 +65,7 @@ public class GimnasioApp {
                 100
         );
 
-        System.out.println( gimnasio.obtenerHistorialEntrenamiento("1212") );
+        System.out.println( gimnasio.obtenerHistorialEntrenamiento("123456789") );
 
     }
 
