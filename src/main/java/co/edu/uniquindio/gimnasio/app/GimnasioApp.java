@@ -1,10 +1,12 @@
 package co.edu.uniquindio.gimnasio.app;
 
+import co.edu.uniquindio.gimnasio.modelo.Cliente;
 import co.edu.uniquindio.gimnasio.modelo.Gimnasio;
 import co.edu.uniquindio.gimnasio.modelo.enums.TipoClase;
 import co.edu.uniquindio.gimnasio.modelo.enums.TipoEntrenamiento;
-
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GimnasioApp {
