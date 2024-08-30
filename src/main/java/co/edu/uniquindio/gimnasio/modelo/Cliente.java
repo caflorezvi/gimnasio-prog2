@@ -70,4 +70,14 @@ public class Cliente extends Usuario{
         return calorias;
     }
 
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
+                ", correo='" + correo + '\'' +
+                ", password='" + password + '\'' +
+                ", entrenamientos=" + entrenamientos +
+                '}';
+    }
 }
