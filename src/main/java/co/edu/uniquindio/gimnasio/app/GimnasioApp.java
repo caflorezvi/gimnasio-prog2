@@ -30,7 +30,7 @@ public class GimnasioApp {
         String idClase1 = gimnasio.crearClase(
                 "Rumbaterapia adultos mayores",
                 List.of("Lunes 6:00 am", "Martes 6:00 am", "Miércoles 6:00 am", "Jueves 6:00 am"),
-                1,
+                10,
                 LocalDate.of(2024, 9, 1),
                 LocalDate.of(2024, 9, 15),
                 TipoClase.ZUMBA,

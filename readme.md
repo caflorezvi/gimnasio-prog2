@@ -1,0 +1,3 @@
+## 🏋️‍♀️ Gimnasio
+
+Un gimnasio desea desarrollar un software que mejore la experiencia del usuario y la eficiencia operativa del gimnasio mediante la simplificación del proceso de registro de miembros, la gestión de clases y la optimización del sistema de seguimiento de entrenamientos. En este sentido, se requiere que los usuarios puedan registrarse en la plataforma proporcionando información básica. Una vez registrados, los usuarios pueden reservar clases y registrar sus entrenamientos, los cuales se identifican con un número único de sesión.
